@@ -1,5 +1,6 @@
 # UMOT: A unified framework for long- and short-term association for multi-object tracking
-
+ 
+ https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0332709
 
 ## Installation
 
@@ -23,3 +24,4 @@ The codebase is built on top of [Deformable DETR](https://github.com/fundamental
     ```bash
     cd ./models/ops
     sh ./make.sh
+
