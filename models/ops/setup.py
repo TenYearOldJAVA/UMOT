@@ -30,7 +30,7 @@ def get_extensions():
 
     sources = main_file + source_cpu
     extension = CppExtension
-    extra_compile_args = {"cxx": []}
+    extra_compile_args = {"cxx": ["-std=c++17"]}
     define_macros = []
 
     if torch.cuda.is_available() and CUDA_HOME is not None:
@@ -38,10 +38,12 @@ def get_extensions():
         sources += source_cuda
         define_macros += [("WITH_CUDA", None)]
         extra_compile_args["nvcc"] = [
+            "-std=c++17",
             "-DCUDA_HAS_FP16=1",
             "-D__CUDA_NO_HALF_OPERATORS__",
             "-D__CUDA_NO_HALF_CONVERSIONS__",
             "-D__CUDA_NO_HALF2_OPERATORS__",
+            "--expt-relaxed-constexpr",
         ]
     else:
         raise NotImplementedError('Cuda is not availabel')

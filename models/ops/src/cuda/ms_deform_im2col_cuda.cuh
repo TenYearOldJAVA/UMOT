@@ -15,8 +15,8 @@
 
 #include <ATen/ATen.h>
 #include <ATen/cuda/CUDAContext.h>
-
-#include <THC/THCAtomics.cuh>
+#include <cuda_runtime.h>
+/* CUDA 12 / PyTorch 2: use native atomicAdd (float/double supported in CUDA 10+) */
 
 #define CUDA_KERNEL_LOOP(i, n)                          \
   for (int i = blockIdx.x * blockDim.x + threadIdx.x;   \
