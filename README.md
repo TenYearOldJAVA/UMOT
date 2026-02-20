@@ -1,6 +1,6 @@
 # UMOT: A unified framework for long- and short-term association for multi-object tracking
- 
- https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0332709
+
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0332709
 
 ## Installation
 
@@ -8,20 +8,27 @@ The codebase is built on top of [Deformable DETR](https://github.com/fundamental
 
 ### Requirements
 
-* Install pytorch using conda (optional)
+* Python 3.9–3.11, PyTorch 2.x, CUDA 12.x (recommended)
+
+* Create environment and install PyTorch
 
     ```bash
-    conda create -n UMOT python=3.7
+    conda create -n UMOT python=3.10
     conda activate UMOT
-    conda install pytorch=1.8.1 torchvision=0.9.1 cudatoolkit=10.2 -c pytorch
+    # PyTorch 2.2+ with CUDA 12 — see https://pytorch.org/get-started/locally/
+    pip install torch torchvision
     ```
-* Other requirements
+
+* Install other dependencies
+
     ```bash
     pip install -r requirements.txt
     ```
 
-* Build MultiScaleDeformableAttention
+* Build MultiScaleDeformableAttention (CUDA 12 / PyTorch 2 compatible)
+
     ```bash
-    cd ./models/ops
-    sh ./make.sh
+    cd models/ops
+    pip install -e .
+    ```
 
